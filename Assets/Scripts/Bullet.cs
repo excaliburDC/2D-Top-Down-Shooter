@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour,IPooledObject
     
     private Rigidbody2D rb2d; 
 
-    void Awake()
+    void OnEnable()
     {
         rb2d = GetComponent<Rigidbody2D>(); 
     }

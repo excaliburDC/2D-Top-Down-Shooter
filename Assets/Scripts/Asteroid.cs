@@ -1,30 +1,34 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 
 public class Asteroid : Enemy,IPooledObject
 {
-    private float direction = 0f;
+    [SerializeField] private float asteroidLifetime = 5f;
 
-    // Start is called before the first frame update
     protected override void OnEnable()
     {
         base.OnEnable();
+
+        StartCoroutine(DisableAsteroid());
     }
-
-
-    public void OnObjectSpawner()
-    {
-        if (direction == 0f)
-        {
-            // if no direction choose a random direction to move in.
-            direction = Mathf.Floor(Random.Range(0.0f, 360.0f));
-        }
-        Vector3 rotation = new Vector3(0.0f, 0.0f, direction);
-        transform.rotation = Quaternion.Euler(rotation);
-    }
-
 
     
+    public void OnObjectSpawner()
+    {
+        rb2d.velocity = -transform.up * moveSpeed;
+
+    }
+
+    private IEnumerator DisableAsteroid()
+    {
+        yield return new WaitForSeconds(asteroidLifetime);
+        gameObject.SetActive(false);
+    }
+
+
+
+
 }
