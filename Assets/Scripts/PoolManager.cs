@@ -10,23 +10,11 @@ public class PoolObj
     public int size;
 }
 
-public class PoolManager : MonoBehaviour
+public class PoolManager : SingletonManager<PoolManager>
 {
     public List<PoolObj> pools;
     public Dictionary<string, Queue<GameObject>> poolDictionary;
     
-
-    #region Singleton
-    public static PoolManager instance;
-    private void Awake()
-    {
-        if (instance == null)
-            instance = this;
-
-        else if (instance != this)
-            Destroy(gameObject);
-    }
-    #endregion
 
 
     private void Start()

@@ -46,7 +46,7 @@ public class EnemyManager : MonoBehaviour
         if (timeSinceLastEnemySpawned<0f)
         {
 
-			PoolManager.instance.SpawnInWorld(enemies[currentStringIndex],enemySpawnPoints[currentTransformIndex].position,enemySpawnPoints[currentTransformIndex].rotation );
+			PoolManager.Instance.SpawnInWorld(enemies[currentStringIndex],enemySpawnPoints[currentTransformIndex].position,enemySpawnPoints[currentTransformIndex].rotation );
 
 			timeSinceLastEnemySpawned = 1f / spawnRate;
 		}

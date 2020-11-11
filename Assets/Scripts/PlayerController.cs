@@ -112,7 +112,7 @@ public class PlayerController : MonoBehaviour
         if (fireCountdown < 0f)
         {
 
-            PoolManager.instance.SpawnInWorld("PlayerBullet", spawnPoint.position, spawnPoint.rotation);
+            PoolManager.Instance.SpawnInWorld("PlayerBullet", spawnPoint.position, spawnPoint.rotation);
             fireCountdown = 1f / fireRate;
         }
 
