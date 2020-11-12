@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameController : SingletonManager<GameController>
+public class GameController : MonoBehaviour
 {
-    public GameObject playerObj;
+    
     
     // Start is called before the first frame update
     void Start()

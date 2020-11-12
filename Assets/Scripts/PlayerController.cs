@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
     private MobileControls mb;
     private Health playerHealth;
     private FlashColor flashColor;
+    private PlayerShield playerShield;
+
     private Camera cam;
     private Vector2 movePos;
     private Transform spawnPoint;
@@ -38,6 +40,8 @@ public class PlayerController : MonoBehaviour
         mb = GetComponent<MobileControls>();
         playerHealth = GetComponent<Health>();
         flashColor = GetComponent<FlashColor>();
+        playerShield = GetComponent<PlayerShield>();
+
         spawnPoint = gameObject.transform.GetChild(0); //Spawnpoint is the first child object of the current gameobject
         cam = Camera.main;
     }
@@ -164,5 +168,7 @@ public class PlayerController : MonoBehaviour
 
             DestroyShip(bullet.bulletDamage);
         }
+
+
     }
 }

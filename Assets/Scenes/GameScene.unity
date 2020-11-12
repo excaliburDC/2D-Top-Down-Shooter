@@ -123,11 +123,52 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &126216313 stripped
+--- !u!1 &161569934
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 218547412806031659, guid: 115f0b302239e414c8c5188b7677deb2, type: 3}
-  m_PrefabInstance: {fileID: 1934716825}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 161569935}
+  - component: {fileID: 161569936}
+  m_Layer: 0
+  m_Name: CollectibleManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &161569935
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161569934}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2, y: 6, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &161569936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161569934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf38fa79042a22a4aa49314c64e31758, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnRate: 10
+  xPos: 2
+  yPos: 6
 --- !u!1 &201158867
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,7 +405,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96a1d5cf72a05db43b761131fb8c18b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerObj: {fileID: 126216313}
 --- !u!1 &1023880956
 GameObject:
   m_ObjectHideFlags: 0
@@ -490,6 +530,9 @@ MonoBehaviour:
   - poolName: EnemyBullet
     poolPrefab: {fileID: 3549482242188295826, guid: 259cd1c5a8b780c49aa734e41c6c4dda, type: 3}
     size: 20
+  - poolName: Collectible
+    poolPrefab: {fileID: 711379091954844287, guid: 1da1cff32e46c624ea9f10a2f5275920, type: 3}
+    size: 5
 --- !u!1 &1441764339
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,6 +624,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 171080449, guid: 115f0b302239e414c8c5188b7677deb2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 218547412806031657, guid: 115f0b302239e414c8c5188b7677deb2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
