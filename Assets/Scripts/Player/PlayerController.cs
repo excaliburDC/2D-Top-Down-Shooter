@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
@@ -70,7 +68,9 @@ public class PlayerController : MonoBehaviour
         BoundSpaceship();
     }
 
-
+    /// <summary>
+    /// Fucntion to choose setup controls for different platforms
+    /// </summary>
     private void ChoosePlatformForControls()
     {
 //#if UNITY_STANDALONE || UNITY_WEBPLAYER
@@ -80,6 +80,9 @@ public class PlayerController : MonoBehaviour
 //#endif
     }
 
+    /// <summary>
+    ///Windows/Linux/Webplayer input
+    /// </summary>
     private void StandaloneInput()
     {
         this.transform.Translate(Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime,
@@ -87,7 +90,7 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// Function to implement touch movements
+    /// Function to implement touch movements for IOS and Android
     /// </summary>
     private void TouchMovement()
     {
@@ -137,20 +140,24 @@ public class PlayerController : MonoBehaviour
 
         
     }
-
+    /// <summary>
+    /// Function to respawn player after losing life
+    /// </summary>
     public void RespawnPlayer()
     {
         gameObject.transform.position = new Vector3(0f, -3f, 0f);
         gameObject.SetActive(true);
     }
 
+    /// <summary>
+    /// Function to Deal damage to player and destroy it once it's health reaches 0
+    /// </summary>
     public void DestroyShip(int damage)
     {
         if(!playerShield.IsInvincible)
         {
             playerHealth.ReduceHealth(damage);
 
-            //AudioManager.Instance.PlaySFX(collisionSound);
 
             // check health
             if (playerHealth.Value > 0)
@@ -181,6 +188,9 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Checks Trigger Collsion
+    /// </summary>
     private void OnTriggerEnter2D(Collider2D col)
     {
         if(col.gameObject.tag == "EnemyBullet")
@@ -188,6 +198,8 @@ public class PlayerController : MonoBehaviour
             EnemyBullet bullet = col.GetComponent<EnemyBullet>();
 
             DestroyShip(bullet.bulletDamage);
+
+            col.gameObject.SetActive(false);
         }
 
         if(col.gameObject.tag == "Shield")

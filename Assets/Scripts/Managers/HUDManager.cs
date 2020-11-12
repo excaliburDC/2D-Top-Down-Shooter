@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 using TMPro;
 
@@ -23,6 +22,9 @@ public class HUDManager : MonoBehaviour
 		
 	}
 
+	/// <summary>
+	/// Updates the high score
+	/// </summary>
 	public void UpdateHiScore()
     {
 		int hiScore = PlayerPrefs.GetInt("HiScore");

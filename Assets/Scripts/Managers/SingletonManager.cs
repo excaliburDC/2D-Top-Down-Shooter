@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 
 public class SingletonManager<T> : MonoBehaviour where T: MonoBehaviour
@@ -13,10 +12,7 @@ public class SingletonManager<T> : MonoBehaviour where T: MonoBehaviour
             if(instance==null)
             {
                 instance = GameObject.FindObjectOfType<T>();
-                if(instance==null)
-                {
-                    instance = new GameObject("Instance of " + typeof(T)).AddComponent<T>();
-                }
+                
             }
 
             return instance;
@@ -25,8 +21,12 @@ public class SingletonManager<T> : MonoBehaviour where T: MonoBehaviour
 
     private void Awake()
     {
-        if (instance != null)
-            Destroy(this.gameObject); //prevent duplicates
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+        
     }
 
 }

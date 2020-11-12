@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using CustomRandomGenExtension;
-using UnityEngine.UIElements;
+
 
 public class EnemyManager : MonoBehaviour
 {
     public List<string> enemies;
     public List<Transform> enemySpawnPoints;
 
-	[SerializeField] private float offscreenOffset;
 	[SerializeField] private float spawnRate = 0.5f;
 
 	private Camera cam;
@@ -31,6 +30,10 @@ public class EnemyManager : MonoBehaviour
 		StartCoroutine(SpawnEnemies());
     }
 
+    /// <summary>
+    /// Spawns Random enemy from pool after a particular time
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator SpawnEnemies()
     {
         yield return new WaitForSeconds(2f);
@@ -53,7 +56,7 @@ public class EnemyManager : MonoBehaviour
 
 		timeSinceLastEnemySpawned -= Time.deltaTime;
 
-		
+        yield return null;
 
         
     }

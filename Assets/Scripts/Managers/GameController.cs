@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GameController : SingletonManager<GameController>
 {
@@ -25,13 +22,20 @@ public class GameController : SingletonManager<GameController>
     }
 
 
-
+    /// <summary>
+    /// Updates the score 
+    /// </summary>
+    /// <param name="points">Score amount</param>
     public void UpdatePointsValue(int points)
     {
         CurrentScore += points;
         hUD.UpdateScore(CurrentScore);
     }
 
+    /// <summary>
+    /// Called when player loses life.
+    /// Game is over when player loses all life
+    /// </summary>
     public void OnLifeLost()
     {
         --Lives;
@@ -42,17 +46,17 @@ public class GameController : SingletonManager<GameController>
 
         else
         {
-            if(CurrentScore>hiScore)
-            {
-                hiScore = CurrentScore;
-                PlayerPrefs.SetInt("HiScore", hiScore);
-            }
             
             IsDead = true;
+            hUD.gameObject.SetActive(false);
+            MenuManager.Instance.GameOver(CurrentScore);
         }
         
     }
 
+    /// <summary>
+    /// Resets the Game
+    /// </summary>
     void ResetGame()
     {
         hUD.UpdateHiScore();

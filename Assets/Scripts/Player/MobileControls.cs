@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 
 public class MobileControls : MonoBehaviour
@@ -16,6 +15,9 @@ public class MobileControls : MonoBehaviour
         MobileInput();
     }
 
+    /// <summary>
+    /// Function to detect touch input
+    /// </summary>
     private void MobileInput()
     {
         tap = swipeLeft = swipeRight = swipeUp = swipeDown = false;
@@ -72,6 +74,9 @@ public class MobileControls : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Reset the touch position
+    /// </summary>
     private void Reset()
     {
         startTouch = swipeDelta = Vector2.zero;

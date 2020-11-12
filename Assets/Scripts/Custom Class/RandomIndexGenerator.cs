@@ -8,6 +8,12 @@ namespace CustomRandomGenExtension
     {
         private static int lastIndex = 0;
 
+        /// <summary>
+        /// Generates a new random index every time from a generic set of list  
+        /// </summary>
+        /// <typeparam name="T">Generic type</typeparam>
+        /// <param name="list">A List having any kind of data type</param>
+        /// <returns>returns a new random index every time</returns>
         public static int GetRandomIndex<T>(this List<T> list)
         {
             

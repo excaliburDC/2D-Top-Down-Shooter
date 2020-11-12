@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 
 [RequireComponent(typeof(FlashColor))]
@@ -19,9 +17,12 @@ public class CheckCollision : MonoBehaviour
         flashColor = GetComponent<FlashColor>();
 
         initialHealth = enemyHealth.Value;
-        //Debug.Log(enemy.gameObject.name);
+     
     }
 
+    /// <summary>
+    /// Checks Trigger Collsion
+    /// </summary>
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Player")
@@ -46,22 +47,19 @@ public class CheckCollision : MonoBehaviour
 
             col.gameObject.SetActive(false);
 
-            //enemy.health -= 10;
-            //Debug.Log(enemy.health);
-
-            //if(enemy.health < 0)
-            //{
-            //    enemy.health = 10;
-            //    gameObject.SetActive(false);
-            //}
+          
         }
     }
 
+    /// <summary>
+    /// Function to deal damage to enemy
+    /// </summary>
+    /// <param name="damage">Amount of damage dealt by player</param>
     private void TakeDamage(int damage)
     {
         enemyHealth.Value -= damage;
 
-        //AudioManager.Instance.PlaySFX(collisionSound);
+        
 
         // check health
         if (enemyHealth.Value > 0)

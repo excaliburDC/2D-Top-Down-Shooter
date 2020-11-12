@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -9,8 +8,8 @@ public class Enemy : MonoBehaviour
     public GameObject explosionPrefab;
 
     [SerializeField] protected float moveSpeed;
-    [SerializeField] private int pointsValue;
-    [SerializeField] private int damage;
+    [SerializeField] private int pointsValue; //how many points the enemy is worth
+    [SerializeField] private int damage; //damage that will be dealt to player
 
 
 

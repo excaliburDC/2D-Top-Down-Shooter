@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
@@ -27,27 +26,36 @@ public class Menus : MonoBehaviour
             EventSystem.current.SetSelectedGameObject(m_startSelectable.gameObject);
         }
     }
-
+    /// <summary>
+    /// Activates the Menu (This method can be overriden to add more functionality)
+    /// </summary>
     public virtual void ActivateMenu()
     {
         if (onActivateMenu != null)
         {
             //fire activate menu event
         }
-        //gameObject.SetActive(true);
+        gameObject.SetActive(true);
         HandleAnimator("MenuShow");
     }
 
+    /// <summary>
+    /// Deactivates the Menu (This method can be overriden to add more functionality)
+    /// </summary>
     public virtual void CloseMenu()
     {
         if (onCloseMenu != null)
         {
             //fire close menu event
         }
-        //gameObject.SetActive(false);
+        gameObject.SetActive(false);
         HandleAnimator("MenuHide");
     }
 
+    /// <summary>
+    /// Handles the animation for UI
+    /// </summary>
+    /// <param name="animTrigger">string value to activate the specified trigger</param>
     private void HandleAnimator(string animTrigger)
     {
         if (anim)

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
@@ -39,6 +38,13 @@ public class PoolManager : SingletonManager<PoolManager>
 
     }
 
+    /// <summary>
+    /// Spawns Gameobject from the Object Pool in the world
+    /// </summary>
+    /// <param name="tag">Name of the Gameobject to spawn</param>
+    /// <param name="position">Position where the gameobject should spawn</param>
+    /// <param name="rotation">Rotation of the gameobject</param>
+    /// <returns></returns>
     public GameObject SpawnInWorld(string tag,Vector3 position,Quaternion rotation)
     {
         if(!poolDictionary.ContainsKey(tag))

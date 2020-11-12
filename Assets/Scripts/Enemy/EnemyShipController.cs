@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿
 public class EnemyShipController : Enemy,IPooledObject
 {
     
-    
-
-
     protected override void OnEnable()
     {
         base.OnEnable();
@@ -23,6 +16,9 @@ public class EnemyShipController : Enemy,IPooledObject
         
     }
    
+    /// <summary>
+    /// Moves the enemy ship towards the screen
+    /// </summary>
     private void MoveEnemyShip()
     {
         rb2d.velocity = -transform.up * moveSpeed;

@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using TMPro;
 
 public class MenuManager : SingletonManager<MenuManager>
 {
@@ -15,9 +12,9 @@ public class MenuManager : SingletonManager<MenuManager>
 
     [SerializeField] private Menus m_pauseMenu;
 
-    [SerializeField] private Menus m_LevelCompleteMenu;
+    [SerializeField] private Menus m_gameOverMenu;
 
-     
+    [SerializeField] private TMP_Text scoreText;
     
 
     [SerializeField]
@@ -35,6 +32,8 @@ public class MenuManager : SingletonManager<MenuManager>
 
         //the bool parameter decides whether to include inactive gameobjects or not
         menus = GetComponentsInChildren<Menus>(true);
+
+        DontDestroyOnLoad(this.gameObject);
     }
 
     private void Start()
@@ -63,7 +62,10 @@ public class MenuManager : SingletonManager<MenuManager>
     }
 
    
-
+    /// <summary>
+    /// Switches to specified menu
+    /// </summary>
+    /// <param name="menu">Menu to switch to</param>
     public void SwitchMenus(Menus menu)
     {
         if (menu)
@@ -83,7 +85,9 @@ public class MenuManager : SingletonManager<MenuManager>
     }
 
     
-
+    /// <summary>
+    /// Switch back to previous menu
+    /// </summary>
     public void SwitchToPreviousMenu()
     {
         if (previousMenu)
@@ -92,6 +96,9 @@ public class MenuManager : SingletonManager<MenuManager>
         }
     }
 
+    /// <summary>
+    /// Switch to HUD menu
+    /// </summary>
     public void SwitchToHUD()
     {
         if(m_Hud)
@@ -103,6 +110,9 @@ public class MenuManager : SingletonManager<MenuManager>
         }
     }
 
+    /// <summary>
+    /// Function to pause the game and enter Pause menu
+    /// </summary>
     public void PauseMenu()
     {
         if(m_pauseMenu)
@@ -116,41 +126,63 @@ public class MenuManager : SingletonManager<MenuManager>
        
     }
 
-
-
-
-    public void RestartLevel()
+    /// <summary>
+    /// Function to switch back to Main menu
+    /// </summary>
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex-1);
+        Destroy(this.gameObject);
+        Time.timeScale = 1f;
+    }
+    
+    /// <summary>
+    /// Restarts the Game
+    /// </summary>
+    public void RestartGame()
     {
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
         SwitchToHUD();
 
     }
 
-    //call this function after you set isLevelComplete to true
-    public void LevelComplete()
+    /// <summary>
+    /// Called when the player loses all lives and checks if the player has a new high score
+    /// </summary>
+    /// <param name="currentScore">Current score of player</param>
+    public void GameOver(int currentScore)
     {
-       // isLevelComplete = true;
-       // GameController.isKeyCollected = false;
+        int hiScore = PlayerPrefs.GetInt("HiScore");
+
+
+        if (currentScore > hiScore)
+        {
+            hiScore = currentScore;
+
+            scoreText.text = "NEW HIGH SCORE:" + hiScore.ToString();
+
+            PlayerPrefs.SetInt("HiScore", hiScore);
+        }
+
+        else
+        {
+            scoreText.text = "YOUR SCORE:" + currentScore.ToString();
+        }
+
         if (m_Hud)
         {
             m_Hud.gameObject.SetActive(false);
         }
 
-        if(m_LevelCompleteMenu)
+        if(m_gameOverMenu)
         {
-            SwitchMenus(m_LevelCompleteMenu);
+            Time.timeScale = 0f;
+            SwitchMenus(m_gameOverMenu);
         
-            
         }
     }
 
  
-    //public void PlayButtonSound()
-    //{
-    //    AudioManager.Instance.Play("ButtonSound");
-    //}
-
-    
 
     public void QuitGame()
     {
@@ -163,13 +195,17 @@ public class MenuManager : SingletonManager<MenuManager>
         #endif
     }
 
-    //loads from the next level button in level complete menu
-    
-
-    //loads from level menu
+   /// <summary>
+   /// Loads the Game Scene
+   /// </summary>
+   /// <param name="index">Index of the Scene to load</param>
     public void LoadGame(int index)
     {
         SceneManager.LoadSceneAsync(index);
+        if(m_Hud)
+        {
+            SwitchToHUD();
+        }
 
     }
 

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 
 public class FireBullets : MonoBehaviour
@@ -24,6 +23,9 @@ public class FireBullets : MonoBehaviour
         FireEnemyBullet();
     }
 
+    /// <summary>
+    /// Enemy fires bullet in intervals
+    /// </summary>
     private void FireEnemyBullet()
     {
         if (fireCountdown < 0f)

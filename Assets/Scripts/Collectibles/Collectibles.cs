@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Collectibles : MonoBehaviour
 {
@@ -18,14 +16,16 @@ public class Collectibles : MonoBehaviour
 
         if(timeSinceLastSpawned>=spawnRate)
         {
-            SpawnCollectibles();
+            SpawnCollectible();
             timeSinceLastSpawned = 0f;
         }
 
         
     }
-
-    private void SpawnCollectibles()
+    /// <summary>
+    /// Spawns the invincibilty collectible
+    /// </summary>
+    private void SpawnCollectible()
     {
         Debug.Log("Collectible Spawned");
         float spawnXPos = Random.Range(-xPos, xPos);
