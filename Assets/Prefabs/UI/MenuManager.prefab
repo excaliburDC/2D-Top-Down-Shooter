@@ -789,7 +789,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Space Adventure
+  m_text: GALACTIC FIGHTERS
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d478eace70e51484d8634130a59719f0, type: 2}
   m_sharedMaterial: {fileID: -5617461023453111134, guid: d478eace70e51484d8634130a59719f0, type: 2}
@@ -816,8 +816,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 70
+  m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
