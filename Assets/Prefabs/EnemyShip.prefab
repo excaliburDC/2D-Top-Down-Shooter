@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 5283318870826183299}
   - component: {fileID: 8137536029455359652}
   - component: {fileID: 5001959984988746212}
-  - component: {fileID: 5989287360893325076}
   - component: {fileID: 6489251002043344854}
+  - component: {fileID: 8208458892577429071}
   - component: {fileID: -3624189213832624711}
   - component: {fileID: -2798751380151959446}
   m_Layer: 0
@@ -136,19 +136,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &5989287360893325076
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5283318870826183298}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ba0e14a371489947a5216454fac865c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 30
 --- !u!114 &6489251002043344854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,9 +148,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de6c544d3bb690c43bdc752c1cc28414, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyHealth: 30
   moveSpeed: 2
   pointsValue: 30
   damage: 50
+--- !u!114 &8208458892577429071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5283318870826183298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ba0e14a371489947a5216454fac865c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 30
 --- !u!114 &-3624189213832624711
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -29,23 +29,7 @@ public class Asteroid : Enemy,IPooledObject
     }
 
 
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "Player")
-        {
-            Debug.Log(col.name);
-
-            PlayerController p = col.GetComponent<PlayerController>();
-
-            p.DestroyShip(damage);
-
-        }
-
-        if (col.gameObject.tag == "PlayerBullet")
-        {
-            Debug.Log(col.name);
-        }
-    }
+   
 
 
 

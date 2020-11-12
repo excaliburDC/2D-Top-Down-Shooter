@@ -12,12 +12,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float moveSpeed = 2f;
     [SerializeField] private float fireRate = 1f;
     
+
+
     
     private float fireCountdown;
     private int initialHealth;
 
     private MobileControls mb;
-    private Health health;
+    private Health playerHealth;
     private Camera cam;
     private Vector2 movePos;
     private Transform spawnPoint;
@@ -31,7 +33,7 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         mb = GetComponent<MobileControls>();
-        health = GetComponent<Health>();
+        playerHealth = GetComponent<Health>();
         spawnPoint = gameObject.transform.GetChild(0); //Spawnpoint is the first child object of the current gameobject
         cam = Camera.main;
     }
@@ -42,7 +44,7 @@ public class PlayerController : MonoBehaviour
         objWidth = transform.GetComponent<BoxCollider2D>().bounds.extents.x; //extents = size of width / 2
         objHeight = transform.GetComponent<BoxCollider2D>().bounds.extents.y; //extents = size of height / 2
 
-        initialHealth = health.Value;
+        initialHealth = playerHealth.Value;
     }
 
     // Update is called once per frame
@@ -129,12 +131,12 @@ public class PlayerController : MonoBehaviour
 
     public void DestroyShip(int damage)
     {
-        health.ReduceHealth(damage);
+        playerHealth.ReduceHealth(damage);
 
         //AudioManager.Instance.PlaySFX(collisionSound);
 
         // check health
-        if (health.Value > 0)
+        if (playerHealth.Value > 0)
         {
            // flashColor.Flash();
         }
@@ -144,7 +146,7 @@ public class PlayerController : MonoBehaviour
             // GameObject particles = Instantiate(explosionParticlesPrefab, transform.position, Quaternion.identity) as GameObject;
             // Destroy(particles, 1.0f);
             gameObject.SetActive(false);
-            health.Value = initialHealth;
+            playerHealth.Value = initialHealth;
 
         }
 
@@ -156,7 +158,7 @@ public class PlayerController : MonoBehaviour
         {
             EnemyBullet bullet = col.GetComponent<EnemyBullet>();
 
-            health.ReduceHealth(bullet.bulletDamage);
+            playerHealth.ReduceHealth(bullet.bulletDamage);
         }
     }
 }
