@@ -41,9 +41,7 @@ public class EnemyManager : MonoBehaviour
         currentStringIndex = RandomIndexGenerator.GetRandomIndex<string>(enemies);
         currentTransformIndex = RandomIndexGenerator.GetRandomIndex<Transform>(enemySpawnPoints);
 
-        Debug.LogError("Current String Index: "+currentStringIndex);
-        Debug.LogError("Current Transform Index: " + currentTransformIndex);
-
+        
 
 
         if (timeSinceLastEnemySpawned<0f)

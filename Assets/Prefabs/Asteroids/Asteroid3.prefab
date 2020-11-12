@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 8862938202126594843, guid: d7f0a1502912817428fa7c08dbc82e51, type: 3}
-  moveSpeed: 2
+  moveSpeed: 2.5
   pointsValue: 30
   damage: 50
   asteroidLifetime: 10

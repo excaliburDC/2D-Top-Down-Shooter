@@ -39,7 +39,6 @@ public class CheckCollision : MonoBehaviour
 
         if (col.gameObject.tag == "PlayerBullet")
         {
-            Debug.Log(col.name);
 
             Bullet b = col.gameObject.GetComponent<Bullet>();
 
@@ -64,7 +63,6 @@ public class CheckCollision : MonoBehaviour
         // check health
         if (enemyHealth.Value > 0)
         {
-            Debug.Log(enemyHealth.Value);
             flashColor.Flash();
         }
         else

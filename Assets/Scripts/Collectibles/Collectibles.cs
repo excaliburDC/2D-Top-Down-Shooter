@@ -27,7 +27,7 @@ public class Collectibles : MonoBehaviour
     /// </summary>
     private void SpawnCollectible()
     {
-        Debug.Log("Collectible Spawned");
+        
         float spawnXPos = Random.Range(-xPos, xPos);
 
         currentSpawnPos = new Vector2(spawnXPos, yPos);
