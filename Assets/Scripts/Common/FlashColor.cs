@@ -37,7 +37,7 @@ public class FlashColor : MonoBehaviour
 	[ContextMenu("Test Flash")]
 	public void Flash()
 	{
-		Debug.Log("FLash called");
+
 		ChangeColor(flashAmount);
 		Invoke("ResetColor", duration);
 	}

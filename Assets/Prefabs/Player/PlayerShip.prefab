@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &171080451
 Transform:
   m_ObjectHideFlags: 0
@@ -318,7 +318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb3cefbd6dd20594e81953a9d3baa7f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 4
+  moveSpeed: 6
   fireRate: 2
   shipExplosionEffect: {fileID: 8515702696284969975, guid: 3e497958530750b46bdbffed93f4b48a, type: 3}
 --- !u!114 &-7945883174841275003

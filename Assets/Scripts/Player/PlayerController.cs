@@ -1,4 +1,5 @@
 ﻿
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
@@ -18,13 +19,15 @@ public class PlayerController : MonoBehaviour
     private float fireCountdown;
     private int initialHealth;
 
+    private Rigidbody2D rb2d;
     private MobileControls mb;
     private Health playerHealth;
     private FlashColor flashColor;
     private PlayerShield playerShield;
 
     private Camera cam;
-    private Vector2 movePos;
+    //setting the movePos with a bit of offset so that it doesn't go to center of screen when game starts
+    private Vector2 movePos = new Vector2(0f,-3f); 
     private Transform spawnPoint;
 
     private Vector2 screenBounds;
@@ -35,6 +38,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        rb2d = GetComponent<Rigidbody2D>();
         mb = GetComponent<MobileControls>();
         playerHealth = GetComponent<Health>();
         flashColor = GetComponent<FlashColor>();
@@ -57,7 +61,9 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         ChoosePlatformForControls();
-        FireBullets();
+
+        StartCoroutine(FireBullets());
+        
         
         
 
@@ -73,11 +79,11 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void ChoosePlatformForControls()
     {
-//#if UNITY_STANDALONE || UNITY_WEBPLAYER
+#if UNITY_STANDALONE || UNITY_WEBPLAYER
          StandaloneInput();  
-//#elif UNITY_IOS || UNITY_ANDROID
-//        TouchMovement();
-//#endif
+#elif UNITY_IOS || UNITY_ANDROID
+        TouchMovement();
+#endif
     }
 
     /// <summary>
@@ -107,9 +113,11 @@ public class PlayerController : MonoBehaviour
             movePos += Vector2.down;
 
 
-        transform.position = Vector2.Lerp(transform.position, movePos * 2f, moveSpeed * Time.deltaTime);
+        transform.position = Vector2.Lerp(transform.position, movePos, moveSpeed * Time.deltaTime);
 
-        
+
+
+
     }
 
     /// <summary>
@@ -127,8 +135,10 @@ public class PlayerController : MonoBehaviour
     /// <summary>
     /// Function to fire bullets from ship's bullet spawnpoint
     /// </summary>
-    private void FireBullets()
+    private IEnumerator FireBullets()
     {
+        yield return new WaitForSeconds(2f);
+
         if (fireCountdown < 0f)
         {
 

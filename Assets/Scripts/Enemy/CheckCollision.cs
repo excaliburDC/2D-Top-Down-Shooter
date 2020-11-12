@@ -27,7 +27,6 @@ public class CheckCollision : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
-            Debug.Log(col.name);
 
             PlayerController p = col.GetComponent<PlayerController>();
 
