@@ -58,8 +58,8 @@ public class PlayerController : MonoBehaviour
     {
 //#if UNITY_STANDALONE || UNITY_WEBPLAYER
          StandaloneInput();  
-///#elif UNITY_IOS || UNITY_ANDROID
-       // TouchMovement();
+//#elif UNITY_IOS || UNITY_ANDROID
+//        TouchMovement();
 //#endif
     }
 
@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
             movePos += Vector2.down;
 
 
-        transform.position = Vector2.Lerp(transform.position, movePos, moveSpeed * Time.deltaTime);
+        transform.position = Vector2.Lerp(transform.position, movePos * 2f, moveSpeed * Time.deltaTime);
 
         
     }
@@ -119,5 +119,13 @@ public class PlayerController : MonoBehaviour
         fireCountdown -= Time.deltaTime;
 
         
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if(col.gameObject.tag == "EnemyBullet")
+        {
+            Debug.Log(col.name);
+        }
     }
 }

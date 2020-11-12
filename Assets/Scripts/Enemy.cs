@@ -4,6 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Health))]
+[RequireComponent(typeof(CheckCollision))]
 public class Enemy : MonoBehaviour
 {
 
@@ -11,11 +12,15 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected float pointsValue;
 
     protected Rigidbody2D rb2d;
+    protected Health health;
 
     
     protected virtual void OnEnable()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        health = GetComponent<Health>();
     }
+
+    
 
 }
