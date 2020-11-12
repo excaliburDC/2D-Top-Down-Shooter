@@ -11,12 +11,6 @@ public class MenuManager : SingletonManager<MenuManager>
 
     public Menus m_startMenu;
     public Menus m_Hud;
-
-
-    //keeps track of the level we are currently in
-    //use it to check which animations to call in which level
-    public static int levelIndex;
-    public static bool isLevelComplete; //assign it to true when level is complete
    
 
     [SerializeField] private Menus m_pauseMenu;
@@ -50,7 +44,7 @@ public class MenuManager : SingletonManager<MenuManager>
             SwitchMenus(m_startMenu);
         }
 
-        levelIndex = 0;
+    
             
 
     }
@@ -61,16 +55,10 @@ public class MenuManager : SingletonManager<MenuManager>
         //for testing purpose only
         if(currentMenu==m_Hud && Input.GetKeyDown(KeyCode.Escape))
         {
-            
             PauseMenu();
         }
 
-        //test
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            isLevelComplete = true;
-            LevelComplete();
-        }
+        
        
     }
 
@@ -133,10 +121,7 @@ public class MenuManager : SingletonManager<MenuManager>
 
     public void RestartLevel()
     {
-        levelIndex = SceneManager.GetActiveScene().buildIndex;
-        Debug.Log("Level" + levelIndex);
-        isLevelComplete = false;
-        SceneManager.LoadSceneAsync(levelIndex);
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
         SwitchToHUD();
 
     }
@@ -144,7 +129,7 @@ public class MenuManager : SingletonManager<MenuManager>
     //call this function after you set isLevelComplete to true
     public void LevelComplete()
     {
-        isLevelComplete = true;
+       // isLevelComplete = true;
        // GameController.isKeyCollected = false;
         if (m_Hud)
         {
@@ -179,29 +164,13 @@ public class MenuManager : SingletonManager<MenuManager>
     }
 
     //loads from the next level button in level complete menu
-    public void LoadNextScene()
-    {
-        levelIndex = SceneManager.GetActiveScene().buildIndex + 1;
-        Debug.Log("Level" + levelIndex);
-        isLevelComplete = false;
-        currentMenu.gameObject.SetActive(false);
-        SceneManager.LoadSceneAsync(levelIndex);
-        SwitchMenus(m_Hud);
-        
-
-       
-
-    }
+    
 
     //loads from level menu
-    public void LoadLevel(int index)
+    public void LoadGame(int index)
     {
-        levelIndex = index;
-        Debug.Log("Level" + levelIndex);
-        isLevelComplete = false;
         SceneManager.LoadSceneAsync(index);
 
-      
     }
 
 

@@ -233,49 +233,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1165742872
+--- !u!1001 &1576422539
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3183668813431330397, guid: d8ddcc3beebddc34882dadb92163c7ea, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-    - target: {fileID: 3183668813431330397, guid: d8ddcc3beebddc34882dadb92163c7ea, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-    - target: {fileID: 3183668813431330397, guid: d8ddcc3beebddc34882dadb92163c7ea, type: 3}
-      propertyPath: m_fontSize
-      value: 36
-      objectReference: {fileID: 0}
-    - target: {fileID: 3183668813431330397, guid: d8ddcc3beebddc34882dadb92163c7ea, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 36
-      objectReference: {fileID: 0}
-    - target: {fileID: 3183668813431330397, guid: d8ddcc3beebddc34882dadb92163c7ea, type: 3}
-      propertyPath: m_HorizontalAlignment
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3183668813431330397, guid: d8ddcc3beebddc34882dadb92163c7ea, type: 3}
-      propertyPath: m_VerticalAlignment
-      value: 512
-      objectReference: {fileID: 0}
-    - target: {fileID: 3183668813431330397, guid: d8ddcc3beebddc34882dadb92163c7ea, type: 3}
-      propertyPath: m_textAlignment
-      value: 65535
-      objectReference: {fileID: 0}
-    - target: {fileID: 3183668813431330397, guid: d8ddcc3beebddc34882dadb92163c7ea, type: 3}
-      propertyPath: m_enableWordWrapping
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3183668814486601701, guid: d8ddcc3beebddc34882dadb92163c7ea, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3183668814624536968, guid: d8ddcc3beebddc34882dadb92163c7ea, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
@@ -372,32 +336,8 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6642968911066255668, guid: d8ddcc3beebddc34882dadb92163c7ea, type: 3}
-    - {fileID: 4462489012820538864, guid: d8ddcc3beebddc34882dadb92163c7ea, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8ddcc3beebddc34882dadb92163c7ea, type: 3}
---- !u!1 &1165742873 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3183668814878673797, guid: d8ddcc3beebddc34882dadb92163c7ea, type: 3}
-  m_PrefabInstance: {fileID: 1165742872}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1165742874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1165742873}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b569c4cc5ce96cf48917943c4af220a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_startMenu: {fileID: 0}
-  m_Hud: {fileID: 0}
-  m_pauseMenu: {fileID: 0}
-  m_LevelCompleteMenu: {fileID: 0}
-  menus: []
 --- !u!1 &1897743130
 GameObject:
   m_ObjectHideFlags: 0
