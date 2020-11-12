@@ -74,6 +74,7 @@ public class CheckCollision : MonoBehaviour
             // particles
             GameObject particles = Instantiate(enemy.explosionPrefab, transform.position, Quaternion.identity);
             Destroy(particles, 0.5f);
+            GameController.Instance.UpdatePointsValue(enemy.PointsValue);
             gameObject.SetActive(false);
             enemyHealth.Value = initialHealth;
 

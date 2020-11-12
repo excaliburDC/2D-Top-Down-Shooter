@@ -9,12 +9,13 @@ public class Enemy : MonoBehaviour
     public GameObject explosionPrefab;
 
     [SerializeField] protected float moveSpeed;
-    [SerializeField] protected float pointsValue;
+    [SerializeField] private int pointsValue;
     [SerializeField] private int damage;
 
 
 
     public int Damage { get => damage;  private set => damage = value; }
+    public int PointsValue { get => pointsValue; private set => pointsValue = value; }
 
     protected Rigidbody2D rb2d;
      

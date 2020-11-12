@@ -61,13 +61,14 @@ public class PlayerController : MonoBehaviour
         ChoosePlatformForControls();
         FireBullets();
         
+        
+
     }
 
     private void LateUpdate()
     {
         BoundSpaceship();
     }
-
 
 
     private void ChoosePlatformForControls()
@@ -137,6 +138,12 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    public void RespawnPlayer()
+    {
+        gameObject.transform.position = new Vector3(0f, -3f, 0f);
+        gameObject.SetActive(true);
+    }
+
     public void DestroyShip(int damage)
     {
         if(!playerShield.IsInvincible)
@@ -155,9 +162,14 @@ public class PlayerController : MonoBehaviour
                 // particles
                 GameObject particles = Instantiate(shipExplosionEffect, transform.position, Quaternion.identity);
                 Destroy(particles, 0.5f);
+                GameController.Instance.OnLifeLost();
                 gameObject.SetActive(false);
                 playerHealth.Value = initialHealth;
 
+                if (!GameController.Instance.IsDead)
+                {
+                    Invoke("RespawnPlayer", 2f);
+                }
             }
         }
 
