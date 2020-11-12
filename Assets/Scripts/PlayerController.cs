@@ -6,11 +6,13 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Health))]
+[RequireComponent(typeof(FlashColor))]
 public class PlayerController : MonoBehaviour
 {
     [Header("Public variables ")]
     [SerializeField] private float moveSpeed = 2f;
     [SerializeField] private float fireRate = 1f;
+    [SerializeField] private GameObject shipExplosionEffect;
     
 
 
@@ -20,6 +22,7 @@ public class PlayerController : MonoBehaviour
 
     private MobileControls mb;
     private Health playerHealth;
+    private FlashColor flashColor;
     private Camera cam;
     private Vector2 movePos;
     private Transform spawnPoint;
@@ -34,6 +37,7 @@ public class PlayerController : MonoBehaviour
     {
         mb = GetComponent<MobileControls>();
         playerHealth = GetComponent<Health>();
+        flashColor = GetComponent<FlashColor>();
         spawnPoint = gameObject.transform.GetChild(0); //Spawnpoint is the first child object of the current gameobject
         cam = Camera.main;
     }
@@ -138,13 +142,13 @@ public class PlayerController : MonoBehaviour
         // check health
         if (playerHealth.Value > 0)
         {
-           // flashColor.Flash();
+            flashColor.Flash();
         }
         else
         {
             // particles
-            // GameObject particles = Instantiate(explosionParticlesPrefab, transform.position, Quaternion.identity) as GameObject;
-            // Destroy(particles, 1.0f);
+             GameObject particles = Instantiate(shipExplosionEffect, transform.position, Quaternion.identity);
+             Destroy(particles, 0.5f);
             gameObject.SetActive(false);
             playerHealth.Value = initialHealth;
 
@@ -158,7 +162,7 @@ public class PlayerController : MonoBehaviour
         {
             EnemyBullet bullet = col.GetComponent<EnemyBullet>();
 
-            playerHealth.ReduceHealth(bullet.bulletDamage);
+            DestroyShip(bullet.bulletDamage);
         }
     }
 }

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5679496865357267799}
   - component: {fileID: 1195696927013670590}
   - component: {fileID: 1417445472569778497}
+  - component: {fileID: -2646761462580848238}
   - component: {fileID: 9207387944901071325}
   m_Layer: 0
   m_Name: PlayerShip
@@ -56,7 +57,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a4ba3706196b3d941befa6af0b1548a7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -168,6 +169,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
+--- !u!114 &-2646761462580848238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218547412806031659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3bf2ac2551123b469f49653bdd55ffd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashColor: {r: 1, g: 1, b: 1, a: 1}
+  flashAmount: 0.7
+  duration: 0.1
+  spriteRenderer: {fileID: 0}
 --- !u!114 &9207387944901071325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,6 +199,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 4
   fireRate: 2.5
+  shipExplosionEffect: {fileID: 8515702696284969975, guid: 3e497958530750b46bdbffed93f4b48a, type: 3}
 --- !u!1 &6492551896809753734
 GameObject:
   m_ObjectHideFlags: 0

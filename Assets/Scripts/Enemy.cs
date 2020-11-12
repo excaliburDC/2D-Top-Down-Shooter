@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public GameObject explosionPrefab;
+
     [SerializeField] protected float moveSpeed;
     [SerializeField] protected float pointsValue;
     [SerializeField] private int damage;

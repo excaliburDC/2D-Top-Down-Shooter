@@ -3,10 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(FlashColor))]
 public class CheckCollision : MonoBehaviour
 {
     private Enemy enemy;
     private Health enemyHealth;
+    private FlashColor flashColor;
     
     private int initialHealth;
 
@@ -14,6 +16,7 @@ public class CheckCollision : MonoBehaviour
     {
         enemy = GetComponent<Enemy>();
         enemyHealth = GetComponent<Health>();
+        flashColor = GetComponent<FlashColor>();
 
         initialHealth = enemyHealth.Value;
         //Debug.Log(enemy.gameObject.name);
@@ -41,6 +44,8 @@ public class CheckCollision : MonoBehaviour
 
             TakeDamage(b.bulletDamage);
 
+            col.gameObject.SetActive(false);
+
             //enemy.health -= 10;
             //Debug.Log(enemy.health);
 
@@ -62,13 +67,13 @@ public class CheckCollision : MonoBehaviour
         if (enemyHealth.Value > 0)
         {
             Debug.Log(enemyHealth.Value);
-            // flashColor.Flash();
+            flashColor.Flash();
         }
         else
         {
             // particles
-            // GameObject particles = Instantiate(explosionParticlesPrefab, transform.position, Quaternion.identity) as GameObject;
-            // Destroy(particles, 1.0f);
+            GameObject particles = Instantiate(enemy.explosionPrefab, transform.position, Quaternion.identity);
+            Destroy(particles, 0.5f);
             gameObject.SetActive(false);
             enemyHealth.Value = initialHealth;
 

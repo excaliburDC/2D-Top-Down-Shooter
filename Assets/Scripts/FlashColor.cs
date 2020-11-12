@@ -4,15 +4,60 @@ using UnityEngine;
 
 public class FlashColor : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	[SerializeField]
+	private Color flashColor = Color.white;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	[SerializeField]
+	[Range(0.0f, 1.0f)]
+	private float flashAmount = 1.0f;
+
+	[SerializeField]
+	private float duration = 0.5f;
+
+	[SerializeField]
+	private SpriteRenderer spriteRenderer;
+
+	private Material material;
+
+	
+	void Start()
+	{
+		if (spriteRenderer == null)
+		{
+			spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+		}
+		material = spriteRenderer.material;
+		material.color = flashColor;
+	}
+
+	
+	/// <summary>
+	/// Flashes the color.
+	/// </summary>
+	[ContextMenu("Test Flash")]
+	public void Flash()
+	{
+		Debug.Log("FLash called");
+		ChangeColor(flashAmount);
+		Invoke("ResetColor", duration);
+	}
+
+	
+
+	/// <summary>
+	/// Resets the color.
+	/// </summary>
+	private void ResetColor()
+	{
+		ChangeColor(0.0f);
+	}
+
+	/// <summary>
+	/// Flashes the color.
+	/// </summary>
+	private void ChangeColor(float value)
+	{
+		material.SetFloat("_FlashAmount", value);
+	}
+
 }

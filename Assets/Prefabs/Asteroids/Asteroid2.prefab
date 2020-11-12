@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1594619290699497171}
   - component: {fileID: -7418005597247772261}
   - component: {fileID: -3802533723396659072}
+  - component: {fileID: -4428720029842667869}
   - component: {fileID: -5065292164427238983}
   m_Layer: 0
   m_Name: Asteroid2
@@ -55,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a4ba3706196b3d941befa6af0b1548a7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -136,7 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e6445507f069141b4b1ef45a098af6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 20
+  explosionPrefab: {fileID: 8862938202126594843, guid: d7f0a1502912817428fa7c08dbc82e51, type: 3}
   moveSpeed: 2
   pointsValue: 20
   damage: 50
@@ -154,6 +155,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 20
+--- !u!114 &-4428720029842667869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594619290699497175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3bf2ac2551123b469f49653bdd55ffd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashColor: {r: 1, g: 1, b: 1, a: 1}
+  flashAmount: 0.7
+  duration: 0.1
+  spriteRenderer: {fileID: 0}
 --- !u!114 &-5065292164427238983
 MonoBehaviour:
   m_ObjectHideFlags: 0
