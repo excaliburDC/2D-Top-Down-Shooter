@@ -139,24 +139,33 @@ public class PlayerController : MonoBehaviour
 
     public void DestroyShip(int damage)
     {
-        playerHealth.ReduceHealth(damage);
-
-        //AudioManager.Instance.PlaySFX(collisionSound);
-
-        // check health
-        if (playerHealth.Value > 0)
+        if(!playerShield.IsInvincible)
         {
-            flashColor.Flash();
+            playerHealth.ReduceHealth(damage);
+
+            //AudioManager.Instance.PlaySFX(collisionSound);
+
+            // check health
+            if (playerHealth.Value > 0)
+            {
+                flashColor.Flash();
+            }
+            else
+            {
+                // particles
+                GameObject particles = Instantiate(shipExplosionEffect, transform.position, Quaternion.identity);
+                Destroy(particles, 0.5f);
+                gameObject.SetActive(false);
+                playerHealth.Value = initialHealth;
+
+            }
         }
+
         else
         {
-            // particles
-             GameObject particles = Instantiate(shipExplosionEffect, transform.position, Quaternion.identity);
-             Destroy(particles, 0.5f);
-            gameObject.SetActive(false);
-            playerHealth.Value = initialHealth;
-
+            Debug.Log("Shield Activated");
         }
+        
 
     }
 
@@ -167,6 +176,13 @@ public class PlayerController : MonoBehaviour
             EnemyBullet bullet = col.GetComponent<EnemyBullet>();
 
             DestroyShip(bullet.bulletDamage);
+        }
+
+        if(col.gameObject.tag == "Shield")
+        {
+            col.gameObject.SetActive(false);
+
+            playerShield.ActivateShield();
         }
 
 

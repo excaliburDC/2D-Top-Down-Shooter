@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 171080451}
   - component: {fileID: 171080450}
   - component: {fileID: 7217504494025548378}
+  - component: {fileID: 538080452592999646}
   m_Layer: 0
   m_Name: InvincibleShield
   m_TagString: Untagged
@@ -99,6 +100,25 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.029509068}
   serializedVersion: 2
   m_Radius: 2.5734408
+--- !u!95 &538080452592999646
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171080449}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c6b928ccd8f32064e90700b9e90187ed, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &218547412806031659
 GameObject:
   m_ObjectHideFlags: 0
