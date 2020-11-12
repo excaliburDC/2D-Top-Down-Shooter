@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour,IPooledObject
 {
+    public int bulletDamage;
     [SerializeField] private float bulletSpeed = 4f;
     
     private Rigidbody2D rb2d; 

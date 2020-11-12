@@ -13,7 +13,7 @@ public class Health : MonoBehaviour
     public int Value
     {
         get { return health; }
-        private set { health = value; }
+        set { health = value; }
     }
 
   

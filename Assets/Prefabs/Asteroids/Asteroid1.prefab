@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ba0e14a371489947a5216454fac865c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  health: 10
 --- !u!114 &1401636459633846373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,7 +150,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
-  pointsValue: 0
+  pointsValue: 10
+  damage: 25
   asteroidLifetime: 5
 --- !u!114 &4927201701209558204
 MonoBehaviour:

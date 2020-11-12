@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] protected float moveSpeed;
     [SerializeField] protected float pointsValue;
+    [SerializeField] protected int damage;
 
     protected Rigidbody2D rb2d;
     protected Health health;
@@ -22,5 +23,7 @@ public class Enemy : MonoBehaviour
     }
 
     
+    
+
 
 }

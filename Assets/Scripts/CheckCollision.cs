@@ -4,16 +4,12 @@ using UnityEngine;
 
 public class CheckCollision : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        if(col.gameObject.tag == "Player")
-        {
-            Debug.Log(col.name);
-        }
+    private Enemy enemy;
 
-        if(col.gameObject.tag == "PlayerBullet")
-        {
-            Debug.Log(col.name);
-        }
+    private void Start()
+    {
+        enemy = GetComponent<Enemy>();
+
+        Debug.Log(enemy.gameObject.name);
     }
 }

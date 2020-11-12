@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8486607005052011182}
   - component: {fileID: 5679496865357267799}
   - component: {fileID: 1195696927013670590}
+  - component: {fileID: 1417445472569778497}
   - component: {fileID: 9207387944901071325}
   m_Layer: 0
   m_Name: PlayerShip
@@ -154,6 +155,19 @@ MonoBehaviour:
   isDraging: 0
   startTouch: {x: 0, y: 0}
   swipeDelta: {x: 0, y: 0}
+--- !u!114 &1417445472569778497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218547412806031659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ba0e14a371489947a5216454fac865c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 50
 --- !u!114 &9207387944901071325
 MonoBehaviour:
   m_ObjectHideFlags: 0

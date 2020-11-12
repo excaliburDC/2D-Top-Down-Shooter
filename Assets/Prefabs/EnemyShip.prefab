@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ba0e14a371489947a5216454fac865c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  health: 30
 --- !u!114 &6489251002043344854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,7 +162,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
-  pointsValue: 0
+  pointsValue: 30
+  damage: 50
 --- !u!114 &-3624189213832624711
 MonoBehaviour:
   m_ObjectHideFlags: 0

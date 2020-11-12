@@ -5,6 +5,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Health))]
 public class PlayerController : MonoBehaviour
 {
     [Header("Public variables ")]
@@ -13,8 +14,10 @@ public class PlayerController : MonoBehaviour
     
     
     private float fireCountdown;
+    private int initialHealth;
 
     private MobileControls mb;
+    private Health health;
     private Camera cam;
     private Vector2 movePos;
     private Transform spawnPoint;
@@ -28,6 +31,7 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         mb = GetComponent<MobileControls>();
+        health = GetComponent<Health>();
         spawnPoint = gameObject.transform.GetChild(0); //Spawnpoint is the first child object of the current gameobject
         cam = Camera.main;
     }
@@ -37,6 +41,8 @@ public class PlayerController : MonoBehaviour
         screenBounds = cam.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, cam.transform.position.z));
         objWidth = transform.GetComponent<BoxCollider2D>().bounds.extents.x; //extents = size of width / 2
         objHeight = transform.GetComponent<BoxCollider2D>().bounds.extents.y; //extents = size of height / 2
+
+        initialHealth = health.Value;
     }
 
     // Update is called once per frame
@@ -121,11 +127,36 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    public void DestroyShip(int damage)
+    {
+        health.ReduceHealth(damage);
+
+        //AudioManager.Instance.PlaySFX(collisionSound);
+
+        // check health
+        if (health.Value > 0)
+        {
+           // flashColor.Flash();
+        }
+        else
+        {
+            // particles
+            // GameObject particles = Instantiate(explosionParticlesPrefab, transform.position, Quaternion.identity) as GameObject;
+            // Destroy(particles, 1.0f);
+            gameObject.SetActive(false);
+            health.Value = initialHealth;
+
+        }
+
+    }
+
     private void OnTriggerEnter2D(Collider2D col)
     {
         if(col.gameObject.tag == "EnemyBullet")
         {
-            Debug.Log(col.name);
+            EnemyBullet bullet = col.GetComponent<EnemyBullet>();
+
+            health.ReduceHealth(bullet.bulletDamage);
         }
     }
 }
